@@ -1,0 +1,16 @@
+https://www.itsolutionstuff.com/post/laravel-8-rest-api-with-passport-authentication-tutorialexample.html
+
+composer create-project laravel/laravel:^11.0 example-app
+or
+composer create-project --prefer-dist laravel/laravel passport-api
+
+composer update
+
+composer require guzzlehttp/guzzle:^7.8
+composer update
+
+composer require laravel/passport --ignore-platform-req=ext-sodium
+php artisan migrate
+
+php artisan passport:install
+php artisan migrate
