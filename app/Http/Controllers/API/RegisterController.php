@@ -66,4 +66,24 @@ class RegisterController extends BaseController
     }
 }
 
+    public function get_user_profile(Request $request)
+{
+    // Retrieve the authenticated user
+    $user = Auth::user();
+
+    // Check if the user exists
+    if (!$user) {
+        $obj = new \stdClass();
+        $json = array('status' => false, 'message' => 'User not found', 'data' => $obj);
+        return $this->sendResponse($json);
+    }
+
+   
+
+    $json = array('status' => true, 'message' => 'User profile retrieved successfully', 'user_data' => $user);
+            header("HTTP/1.1 200 OK");
+            header('Content-Type: application/json; charset=utf-8');
+            echo json_encode($json);
+            die;
+}
 }
