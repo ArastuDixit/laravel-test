@@ -22,6 +22,7 @@ Route::post('register', [RegisterController::class, 'register']);
 Route::post('login', [RegisterController::class, 'login']);
 
 Route::middleware('auth:api')->get('/user', [RegisterController::class, 'getUser']);
+Route::middleware('auth:api')->get('/get_user_profile', [RegisterController::class, 'get_user_profile']);
 
 Route::middleware('auth:api')->group( function () {
     Route::resource('products', ProductController::class);
